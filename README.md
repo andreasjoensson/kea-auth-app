@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+Jeg startede med at undersøge forskellige løsninger, og fandt frem til Firebase ville være god.
+Og jeg valgte React til at lave en frontend da jeg syntes det er nemt at sætte op med npx create-react-app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Så jeg oprettede react frontenden ved brug af npx create-react-app kea-auth-app.
+Når det var oprettet fik jeg installeret mine moduler, som er firebase og firebase ui
 
-## Available Scripts
+npm install firebase@9.1.2 firebaseui@5.0.0
 
-In the project directory, you can run:
+Efter noget trial and error fandt jeg frem til at de her 2 versioner var kompatible og valgte derfor at bruge dem.
 
-### `npm start`
+Jeg oprettede en bruger inde på https://console.firebase.google.com, og oprettede derefter et projekt.
+Når jeg havde oprettet projektet fik jeg en configuration som ligner det her:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+const firebaseConfig = {
+apiKey: "AIzaSyAfNlfzNqhi6-vmClmqLpx26FHQXsSUU30",
+authDomain: "keaauth.firebaseapp.com",
+projectId: "keaauth",
+storageBucket: "keaauth.appspot.com",
+messagingSenderId: "667955668099",
+appId: "1:667955668099:web:ddcba4de20892f6f1027b6",
+};
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+For at bruge konfigurationen oprettede jeg en fil der hedder firebase.js, hvor jeg benytter konfigurationen.
+Så oprettede jeg 2 komponenter.
 
-### `npm test`
+FirebaseAuth
+Siden hvor man login/registrere sig.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Hemmelig
+Siden du skal have adgang til hvis du har logget succesfuldt ind.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Jeg opsatte det inde i FirebaseAuth sådan så at man kan logge ind med Google, og forresten skulle jeg også ind på https://console.firebase.google.com og enable det før at det ville virke.
